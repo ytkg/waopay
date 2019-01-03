@@ -1,5 +1,11 @@
 <h1>Session#new</h1>
 <p>Find me in app/views/session/new.html.erb</p>
+<% if flash[:danger] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:danger]  %>
+  </div>
+<% end %>
+
 <%= form_for :session, url: login_path do |f| %>
   <%= f.text_field :username %>
   <%= f.password_field :password %>
