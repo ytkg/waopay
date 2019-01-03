@@ -1,0 +1,11 @@
+<nav class="row nav nav-pills nav-fill">
+  <a class="nav-item nav-link rounded-0 <%= 'active' if p params['action'] == 'show' %>" href="/mypage">
+    <span style="font-size: 2rem;"><i class="fas fa-home"></i></span><br>ホーム
+  </a>
+  <a class="nav-item nav-link rounded-0 <%= 'active' if p params['action'] == 'pay' %>" href="/pay">
+    <span style="font-size: 2rem;"><i class="fab fa-alipay"></i></span><br>お支払い
+  </a>
+  <a class="nav-item nav-link rounded-0 <%= 'active' if p params['action'] == 'qrcode' %>" href="/qrcode">
+    <span style="font-size: 2rem;"><i class="fas fa-qrcode"></i></span><br>QR表示
+  </a>
+</nav>

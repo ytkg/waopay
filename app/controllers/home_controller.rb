@@ -4,4 +4,10 @@ class HomeController < ApplicationController
 
   def show
   end
+
+  def pay
+  end
+
+  def qrcode
+  end
 end
