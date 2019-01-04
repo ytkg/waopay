@@ -5,7 +5,10 @@ class HomeController < ApplicationController
   end
 
   def show
-    @orders = @current_user.orders.order(id: :desc)
+    @orders = Order
+              .includes(:receiving_user, :payment_user)
+              .by_user_id(current_user.id)
+              .order(id: :desc)
   end
 
   def qrcode
@@ -15,7 +18,7 @@ class HomeController < ApplicationController
   end
 
   def grant_login_bonus
-    @current_user.grant_login_bonus
+    current_user.grant_login_bonus
   end
 
   private
