@@ -5,6 +5,9 @@
       if (amount < 1) {
         $(this).val('');
         $('#makeButton').prop('disabled', true)
+      } else if (amount >= 1000000) {
+        $(this).val('999999');
+        $('#makeButton').prop('disabled', false)
       } else {
         $(this).val(amount);
         $('#makeButton').prop('disabled', false)
