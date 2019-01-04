@@ -3,7 +3,7 @@ module HomeHelper
     dom = "<ul class='row list-group list-group-flush'>"
 
     orders.each do |order|
-      dom += "<li href='#' class='list-group-item list-group-item-action flex-column align-items-start'>"
+      dom += "<li class='list-group-item list-group-item-action flex-column align-items-start'>"
       dom += "<div class='d-flex w-100 justify-content-between'>"
       dom += "<small>#{order.created_at.strftime("%Y/%m/%d %H:%M:%S")}</small>"
 
