@@ -18,6 +18,12 @@ class User < ApplicationRecord
     Digest::SHA256.hexdigest(token.to_s)
   end
 
+  def grant_login_bonus
+    if Order.where(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, created_at: Date.today.all_day).blank?
+      Order.create(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, amount: 1)
+    end
+  end
+
   def orders
     Order.where(receiving_user_id: id).or(Order.where(payment_user_id: id))
   end
