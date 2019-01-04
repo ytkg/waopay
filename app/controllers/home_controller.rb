@@ -3,5 +3,6 @@ class HomeController < ApplicationController
   end
 
   def show
+    @orders = @current_user.orders.order(id: :desc)
   end
 end
