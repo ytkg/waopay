@@ -1,0 +1,3 @@
+$('.modal-body .qrcode').html('<%= qrcode_tag(@qrcode_text) %>')
+$('.modal-body .amount').html('<span class="h3"><%= number_to_currency(@amount) %></span>')
+$('button#openModalButton').click()
