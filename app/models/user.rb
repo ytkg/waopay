@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :payment_orders, class_name: 'Order', foreign_key: :payment_user_id
   has_many :receiving_orders, class_name: 'Order', foreign_key: :receiving_user_id
 
+  REGISTRATION_BONUS_USER_ID        = -1
+  LOGIN_BONUS_USER_ID               = -2
+  FRIEND_INTRODUCTION_BONUS_USER_ID = -3
+
   def self.new_remember_token
     SecureRandom.urlsafe_base64
   end
