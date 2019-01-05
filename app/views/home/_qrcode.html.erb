@@ -17,7 +17,7 @@
   });
 </script>
 
-<h3 class='mt-2'>Home#qrcode</h3>
+<h3 class='mt-2'>QR表示</h3>
 <div class='text-center'>
   <%= form_for :qrcode, url: qrcode_path, method: :get, remote: true, html: { class: 'form-signin' } do |f| %>
     <div class='form-group'>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <%= f.submit '生成', id: 'makeButton', class: 'btn btn-primary btn-block', disabled: true %>
+    <%= f.submit 'QRコードを表示', id: 'makeButton', class: 'btn btn-primary btn-block', disabled: true %>
   <% end %>
 </div>
 
@@ -53,7 +53,7 @@
         <div class='amount'></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
       </div>
     </div>
   </div>
