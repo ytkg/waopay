@@ -13,8 +13,7 @@ class HomeController < ApplicationController
 
   def qrcode
     @amount = qrcode_params['amount'].to_i
-    unpack_str = "#{@amount}->#{current_user.id}".unpack('H*').first
-    @qrcode_text = "wao://#{unpack_str}"
+    @qrcode_text = WaopayCode.encode(@amount, current_user.id)
   end
 
   def grant_login_bonus
