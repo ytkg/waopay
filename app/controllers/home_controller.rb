@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def pay
-    @amount, user_id = WaopayCode.decode(pay_params['qrcode_text'])
+    @amount, user_id = WaopayCode.decode(URI.decode(pay_params['qrcode_text']))
     @user = User.find(user_id)
   end
 
