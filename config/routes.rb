@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
   get 'mypage', to: 'home#show'
+  get 'pay', to: 'home#pay'
   get 'qrcode', to: 'home#qrcode'
 
   resources :users, only: [:new, :create]

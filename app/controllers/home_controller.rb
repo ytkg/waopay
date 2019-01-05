@@ -11,6 +11,11 @@ class HomeController < ApplicationController
               .order(id: :desc)
   end
 
+  def pay
+    @amount, user_id = WaopayCode.decode(pay_params['qrcode_text'])
+    @user = User.find(user_id)
+  end
+
   def qrcode
     @amount = qrcode_params['amount'].to_i
     @qrcode_text = WaopayCode.encode(@amount, current_user.id)
@@ -21,6 +26,10 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def pay_params
+    params.require(:pay).permit(:qrcode_text)
+  end
 
   def qrcode_params
     params.require(:qrcode).permit(:amount)

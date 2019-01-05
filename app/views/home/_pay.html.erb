@@ -1,27 +1,63 @@
 <h3 class='mt-2'>Home#pay</h3>
-<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js">
-</script>
+<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 <script>
-function openQRCamera(node) {
-  var reader = new FileReader();
-  reader.onload = function() {
-    node.value = "";
-    qrcode.callback = function(res) {
-      if(res instanceof Error) {
-        alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
-      } else {
-        node.parentNode.previousElementSibling.value = res;
-      }
+  function openQRCamera(node) {
+    var reader = new FileReader();
+    reader.onload = function() {
+      node.value = "";
+      qrcode.callback = function(res) {
+        if(res instanceof Error) {
+          alert("QRコードが見つかりません。 QRコードがカメラのフレーム内にあることを確認してから、もう一度やり直してください。");
+        } else {
+          node.parentNode.previousElementSibling.value = res;
+          $('#pay_qrcode_text').val(res);
+          $('#payButton').click();
+        }
+      };
+      qrcode.decode(reader.result);
     };
-    qrcode.decode(reader.result);
-  };
-  reader.readAsDataURL(node.files[0]);
-}
+    reader.readAsDataURL(node.files[0]);
+  }
 
   $(function(){
-    $('#pills-pay-tab').click(function(){
-      $('#pills-pay > label > input[type="file"]').click();
+    $('#pills-pay-tab1, #openCamera').click(function(){
+      $('#pills-pay > div > label > input[type="file"]').click();
     });
   });
 </script>
-<input type=text size=16 placeholder="Tracking Code" class=qrcode-text><label class=qrcode-text-btn><input type=file accept="image/*" capture=environment onchange="openQRCamera(this);" tabindex=-1 style='display:none'></label> 
+
+<div class='text-center'>
+  <%= form_for :pay, url: pay_path, method: :get, remote: true, html: { class: 'form-signin' } do |f| %>
+    <%= f.hidden_field :qrcode_text, class: 'form-control' %>
+    <%= f.submit '送信', id: 'payButton', class: 'btn btn-primary btn-block', style: 'display:none' %>
+  <% end %>
+  <label class=qrcode-text-btn><input type=file accept="image/*" capture=environment onchange="openQRCamera(this);" tabindex=-1 style='display:none'></label> 
+  <label>QRコードを撮影</label></br>
+  <button type="button" id='openCamera' class="btn btn-primary">カメラを起動</button>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" id='openPayModalButton' class="btn btn-primary" data-toggle="modal" data-target="#payModalCenter" style="display:none">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="payModalCenter" tabindex="-1" role="dialog" aria-labelledby="payModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="payModalCenterTitle">QRコード</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <div class='pay'></div>
+        <div class='amount'></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
