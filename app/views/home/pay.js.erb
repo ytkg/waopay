@@ -1,3 +1,7 @@
-$('.modal-body .amount').html('<%= @amount %>')
-$('.modal-body .pay').html('<%= @user.name %>')
+<% if @error %>
+  $('.modal-body .amount').html('<%= @error %>')
+<% else %>
+  $('.modal-body .amount').html('<%= number_to_currency(@amount) %>')
+  $('.modal-body .pay').html('<%= "#{@user.name}(#{@user.username})さん" %>')
+<% end %>
 $('button#openPayModalButton').click()

@@ -12,8 +12,13 @@ class HomeController < ApplicationController
   end
 
   def pay
-    @amount, user_id = WaopayCode.decode(URI.decode(pay_params['qrcode_text']))
-    @user = User.find(user_id)
+    begin
+      @amount, user_id = WaopayCode.decode(pay_params['qrcode_text'])
+      @user = User.find(user_id)
+      @error = '残高が足りません。' if current_user.total_amount < @amount
+    rescue
+      @error = 'QRコードを確認してください。'
+    end
   end
 
   def qrcode

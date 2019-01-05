@@ -27,7 +27,7 @@
 </script>
 
 <div class='text-center'>
-  <%= form_for :pay, url: pay_path, method: :get, remote: true, html: { class: 'form-signin' } do |f| %>
+  <%= form_for :pay, url: pay_path, method: :get, remote: true, html: { class: 'form-signin p-2' } do |f| %>
     <%= f.hidden_field :qrcode_text, class: 'form-control' %>
     <%= f.submit '送信', id: 'payButton', class: 'btn btn-primary btn-block', style: 'display:none' %>
   <% end %>
