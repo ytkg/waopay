@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'pay', to: 'home#pay'
   get 'qrcode', to: 'home#qrcode'
 
+  resources :orders, only: [:create]
+
   resources :users, only: [:new, :create]
 
   get    'login',  to: 'sessions#new'

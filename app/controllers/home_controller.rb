@@ -9,6 +9,8 @@ class HomeController < ApplicationController
               .includes(:receiving_user, :payment_user)
               .by_user_id(current_user.id)
               .order(id: :desc)
+
+    @order = Order.new
   end
 
   def pay

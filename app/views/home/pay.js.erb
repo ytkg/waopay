@@ -3,5 +3,7 @@
 <% else %>
   $('.modal-body .amount').html('<%= number_to_currency(@amount) %>')
   $('.modal-body .pay').html('<%= "#{@user.name}(#{@user.username})さん" %>')
+  $('#order_receiving_user_id').val('<%= @user.id %>')
+  $('#order_amount').val('<%= @amount %>')
 <% end %>
 $('button#openPayModalButton').click()
