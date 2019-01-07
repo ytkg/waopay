@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+
   get 'mypage', to: 'home#show'
-  get 'pay', to: 'home#pay'
+  get 'pay',    to: 'home#pay'
   get 'qrcode', to: 'home#qrcode'
 
   resources :orders, only: [:create]
 
-  resources :users, only: [:new, :create]
+  get  'signup', to: 'users#new'
+  post 'signup', to: 'user#create'
 
   get    'login',  to: 'sessions#new'
   post   'login',  to: 'sessions#create'
