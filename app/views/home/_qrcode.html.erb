@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <%= f.submit 'QRコードを表示', id: 'makeButton', class: 'btn btn-primary btn-block', disabled: true %>
+    <%= f.submit 'QRコードを表示', id: 'makeButton', class: 'btn btn-primary btn-block', disabled: true, data: { disable_with: 'QRコード生成中' } %>
   <% end %>
 </div>
 
