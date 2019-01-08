@@ -1,5 +1,5 @@
 <div class='text-center'>
-  <h1 class='h3 mt-4 mb-0'>Please sign in</h1>
+  <h1 class='h3 mt-4 mb-0'>ログイン画面</h1>
   <% if flash[:danger] %>
     <div class="alert alert-danger mt-3 form-signin" role="alert">
       <%= flash[:danger]  %>
@@ -8,12 +8,12 @@
 
   <%= form_for :session, url: login_path, html: { class: 'form-signin' } do |f| %>
     <div class='form-group'>
-      <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
+      <%= f.text_field :username, class: 'form-control', placeholder: 'ユーザー名' %>
     </div>
     <div class='form-group'>
-      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'パスワード' %>
     </div>
-    <%= f.submit 'Sign in', class: 'btn btn-primary btn-block' %>
+    <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
   <% end %>
   <p>ユーザー登録がお済みでない方は<%= link_to 'こちら', signup_path %></p>
 </div>
