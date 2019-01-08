@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_secure_password validations: true
 
-  validates :username, presence: true, uniqueness: true
+  validates :name, presence: true, length: { minimum: 2 }
+  validates :username, presence: true, uniqueness: true, length: { minimum: 4 }, format: { with: /\A[a-z0-9]+\z/i }
 
   has_many :payment_orders, class_name: 'Order', foreign_key: :payment_user_id
   has_many :receiving_orders, class_name: 'Order', foreign_key: :receiving_user_id

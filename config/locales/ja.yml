@@ -5,6 +5,12 @@ ja:
       invalid_username: "Usernameが不正です"
       invalid_password: "Passwordが不正です"
   activerecord:
+    attributes:
+      user:
+        name: '表示名'
+        username: 'ユーザーID'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認用)'
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
