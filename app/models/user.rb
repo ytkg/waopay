@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :payment_orders, class_name: 'Order', foreign_key: :payment_user_id
   has_many :receiving_orders, class_name: 'Order', foreign_key: :receiving_user_id
 
-  REGISTRATION_BONUS_USER_ID        = -1
+  SIGNUP_BONUS_USER_ID              = -1
   LOGIN_BONUS_USER_ID               = -2
   FRIEND_INTRODUCTION_BONUS_USER_ID = -3
 
@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   def self.encrypt(token)
     Digest::SHA256.hexdigest(token.to_s)
+  end
+
+  def signup_bonus
+    Order.create(payment_user_id: SIGNUP_BONUS_USER_ID, receiving_user_id: id, amount: 100)
   end
 
   def grant_login_bonus
