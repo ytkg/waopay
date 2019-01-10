@@ -23,6 +23,10 @@ class User < ApplicationRecord
     Order.create(payment_user_id: SIGNUP_BONUS_USER_ID, receiving_user_id: id, amount: 100)
   end
 
+  def introduction_bonus
+    Order.create(payment_user_id: FRIEND_INTRODUCTION_BONUS_USER_ID, receiving_user_id: id, amount: 50)
+  end
+
   def grant_login_bonus
     if Order.where(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, created_at: Date.today.all_day).blank?
       Order.create(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, amount: 1)

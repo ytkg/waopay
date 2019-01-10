@@ -15,6 +15,11 @@
         <span style="font-size: 1.5rem;"><i class="fas fa-qrcode"></i></span><br>QR表示
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link rounded-0" id="pills-introduction-tab" data-toggle="pill" href="#pills-introduction" role="tab" aria-controls="pills-introduction" aria-selected="false">
+        <span style="font-size: 1.5rem;"><i class="fas fa-user-friends"></i></span><br>友達紹介
+      </a>
+    </li>
   </ul>
 <% end %>
 
@@ -27,5 +32,8 @@
   </div>
   <div class="tab-pane fade" id="pills-qrcode" role="tabpanel" aria-labelledby="pills-qrcode-tab">
     <%= render partial: "qrcode" %>
+  </div>
+  <div class="tab-pane fade" id="pills-introduction" role="tabpanel" aria-labelledby="pills-introduction-tab">
+    <%= render partial: "introduction" %>
   </div>
 </div>
