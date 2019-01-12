@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def new
     redirect_to mypage_path if signed_in?
     @user = User.new
-    @introduction_username = [params[:u]].pack('H*')
+    cookies['signup_u'] = params[:u] if params[:u]
   end
 
   def create
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.signup_bonus
 
-      introduction_user = User.find_by(username: params[:introduction_username])
+      introduction_user = User.find_by(username: [cookies['signup_u']].pack('H*'))
       if introduction_user
         introduction_user.introduction_bonus
         @user.introduction_bonus
