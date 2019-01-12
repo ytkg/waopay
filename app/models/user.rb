@@ -29,7 +29,8 @@ class User < ApplicationRecord
 
   def grant_login_bonus
     if Order.where(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, created_at: Date.today.all_day).blank?
-      Order.create(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, amount: 1)
+      amount = [[1] * 20, [5] * 40, [10] * 26, [50] * 3, [100] * 1].flatten.sample
+      Order.create(payment_user_id: LOGIN_BONUS_USER_ID, receiving_user_id: id, amount: amount)
     end
   end
 
