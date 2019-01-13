@@ -1,31 +1,4 @@
 <h3 class='mt-2'>QR支払い</h3>
-<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
-<script>
-  function openQRCamera(node) {
-    var reader = new FileReader();
-    reader.onload = function() {
-      node.value = "";
-      qrcode.callback = function(res) {
-        if(res instanceof Error) {
-          alert("QRコードが見つかりません。 QRコードがカメラのフレーム内にあることを確認してから、もう一度やり直してください。");
-        } else {
-          node.parentNode.previousElementSibling.value = res;
-          $('#pay_qrcode_text').val(res);
-          $('#payButton').click();
-        }
-      };
-      qrcode.decode(reader.result);
-    };
-    reader.readAsDataURL(node.files[0]);
-  }
-
-  $(function(){
-    $('#pills-pay-tab, #openCamera').click(function(){
-      $('#pills-pay > div > label > input[type="file"]').click();
-    });
-  });
-</script>
-
 <div class='text-center'>
   <%= form_for :pay, url: pay_path, method: :get, remote: true, html: { class: 'form-signin p-2' } do |f| %>
     <%= f.hidden_field :qrcode_text, class: 'form-control' %>

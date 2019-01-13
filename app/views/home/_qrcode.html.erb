@@ -1,22 +1,3 @@
-<script>
-  $(function(){
-    $('#qrcode_amount').change(function(){
-      amount = parseInt($(this).val())
-      if (amount < 1) {
-        $(this).val('');
-        $('#makeButton').prop('disabled', true)
-      } else if (amount >= 1000000) {
-        $(this).val('999999');
-        $('#makeButton').prop('disabled', false)
-      } else {
-        $(this).val(amount);
-        $('#makeButton').prop('disabled', false)
-      }
-      console.log(amount);
-    });
-  });
-</script>
-
 <h3 class='mt-2'>QR表示</h3>
 <div class='text-center'>
   <%= form_for :qrcode, url: qrcode_path, method: :get, remote: true, html: { class: 'form-signin' } do |f| %>
