@@ -34,7 +34,7 @@
           <%= f.hidden_field :payment_user_id, value: @current_user.id, class: 'form-control' %>
           <%= f.hidden_field :receiving_user_id, class: 'form-control' %>
           <%= f.hidden_field :amount, class: 'form-control' %>
-          <%= f.submit '支払う', class: 'btn btn-primary' %>
+          <%= f.submit '支払う', class: 'btn btn-primary', data: { disable_with: '支払い処理中' } %>
         <% end %>
       </div>
     </div>
