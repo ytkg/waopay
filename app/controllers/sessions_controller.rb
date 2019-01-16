@@ -23,13 +23,13 @@ class SessionsController < ApplicationController
 
   private
   def set_user
-    @user = User.find_by!(username: session_params[:username])
+    @user = User.find_by!(name: session_params[:name])
   rescue
-    flash.now[:danger] = t('.flash.invalid_username')
+    flash.now[:danger] = t('.flash.invalid_name')
     render action: 'new'
   end
 
   def session_params
-    params.require(:session).permit(:username, :password)
+    params.require(:session).permit(:name, :password)
   end
 end

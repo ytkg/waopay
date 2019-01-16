@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.signup_bonus
 
-      introduction_user = User.find_by(username: [cookies['signup_u']].pack('H*'))
+      introduction_user = User.find_by(name: [cookies['signup_u']].pack('H*'))
       if introduction_user
         introduction_user.introduction_bonus
         @user.introduction_bonus
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :username, :password, :password_confirmation)
+    params.require(:user).permit(:name, :password, :password_confirmation)
   end
 end

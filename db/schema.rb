@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190104155111) do
+ActiveRecord::Schema.define(version: 20190116000741) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "payment_user_id", null: false
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20190104155111) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", limit: 191, null: false
-    t.string "username", limit: 191, null: false
     t.string "password_digest", limit: 191, null: false
     t.string "remember_token", limit: 191
     t.datetime "created_at", null: false
