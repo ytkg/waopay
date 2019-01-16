@@ -2,8 +2,8 @@
 ja:
   sessions:
     flash:
-      invalid_name: "が不正です"
-      invalid_password: "Passwordが不正です"
+      invalid_name: "ユーザーIDが不正です"
+      invalid_password: "パスワードが不正です"
   activerecord:
     attributes:
       user:
