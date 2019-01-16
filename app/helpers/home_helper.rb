@@ -12,9 +12,9 @@ module HomeHelper
       dom += "</div>"
 
       if @current_user.id == order.receiving_user_id
-        dom += "<small>#{order.payment_user.name}(#{order.payment_user.username})さんから受け取り</small>"
+        dom += "<small>#{order.payment_user.name}さんから受け取り</small>"
       else
-        dom += "<small>#{order.receiving_user.name}(#{order.receiving_user.username})さんに支払い</small>"
+        dom += "<small>#{order.receiving_user.name}さんに支払い</small>"
       end
 
       dom += "</li>"
