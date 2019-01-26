@@ -1,9 +1,11 @@
 <% if @error %>
   $('.modal-body .amount').html('<%= @error %>')
+  $('#new_order').hide();
 <% else %>
   $('.modal-body .amount').html('<%= number_to_currency(@amount) %>')
   $('.modal-body .pay').html('<%= "#{@user.name}さん" %>')
   $('#order_receiving_user_id').val('<%= @user.id %>')
   $('#order_amount').val('<%= @amount %>')
+  $('#new_order').show();
 <% end %>
 $('button#openPayModalButton').click()
