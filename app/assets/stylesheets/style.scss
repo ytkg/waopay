@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.bg-secondary {
+  background-color: #ff0099 !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #ff6dbe;
+}
+
+a, a:hover {
+  color: #ff6dbe;
+}
+
+.btn-secondary {
+  background-color: #ff0099 !important;
+  border-color: #ff0099 !important;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;

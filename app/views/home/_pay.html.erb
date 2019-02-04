@@ -2,15 +2,15 @@
 <div class='text-center'>
   <%= form_for :pay, url: pay_path, method: :get, remote: true, html: { class: 'form-signin p-2' } do |f| %>
     <%= f.hidden_field :qrcode_text, class: 'form-control' %>
-    <%= f.submit '送信', id: 'payButton', class: 'btn btn-primary btn-block', style: 'display:none' %>
+    <%= f.submit '送信', id: 'payButton', class: 'btn btn-secondary btn-block', style: 'display:none' %>
   <% end %>
   <label class=qrcode-text-btn><input type=file accept="image/*" capture=environment onchange="openQRCamera(this);" tabindex=-1 style='display:none'></label> 
   <label>QRコードを撮影</label></br>
-  <button type="button" id='openCamera' class="btn btn-primary">カメラを起動</button>
+  <button type="button" id='openCamera' class="btn btn-secondary">カメラを起動</button>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" id='openPayModalButton' class="btn btn-primary" data-toggle="modal" data-target="#payModalCenter" style="display:none">
+<button type="button" id='openPayModalButton' class="btn btn-secondary" data-toggle="modal" data-target="#payModalCenter" style="display:none">
   Launch demo modal
 </button>
 
@@ -34,7 +34,7 @@
           <%= f.hidden_field :payment_user_id, value: @current_user.id, class: 'form-control' %>
           <%= f.hidden_field :receiving_user_id, class: 'form-control' %>
           <%= f.hidden_field :amount, class: 'form-control' %>
-          <%= f.submit '支払う', class: 'btn btn-primary', data: { disable_with: '支払い処理中' } %>
+          <%= f.submit '支払う', class: 'btn btn-secondary', data: { disable_with: '支払い処理中' } %>
         <% end %>
       </div>
     </div>

@@ -10,12 +10,12 @@
         </div>
       </div>
     </div>
-    <%= f.submit 'QRコードを表示', id: 'makeButton', class: 'btn btn-primary btn-block', disabled: true, data: { disable_with: 'QRコード生成中' } %>
+    <%= f.submit 'QRコードを表示', id: 'makeButton', class: 'btn btn-secondary btn-block', disabled: true, data: { disable_with: 'QRコード生成中' } %>
   <% end %>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" id='openModalButton' class="btn btn-primary" data-toggle="modal" data-target="#qrcodeModalCenter" style="display:none">
+<button type="button" id='openModalButton' class="btn btn-secondary" data-toggle="modal" data-target="#qrcodeModalCenter" style="display:none">
   Launch demo modal
 </button>
 
