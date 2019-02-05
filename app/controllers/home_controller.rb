@@ -1,11 +1,7 @@
 class HomeController < ApplicationController
-  skip_before_action :require_sign_in!, only: [:index]
-  before_action :grant_login_bonus, only: [:show]
+  before_action :grant_login_bonus
 
   def index
-  end
-
-  def show
     @orders = Order
               .includes(:receiving_user, :payment_user)
               .by_user_id(current_user.id)

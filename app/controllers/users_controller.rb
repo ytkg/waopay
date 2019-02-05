@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :require_sign_in!, only: [:new, :create]
 
   def new
-    redirect_to mypage_path if signed_in?
+    redirect_to root_path if signed_in?
     @user = User.new
     cookies['signup_u'] = params[:u] if params[:u]
   end

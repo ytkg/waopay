@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   before_action :set_user, only: [:create]
 
   def new
-    redirect_to mypage_path if signed_in?
+    redirect_to root_path if signed_in?
   end
 
   def create
     if @user.authenticate(session_params[:password])
       sign_in(@user)
-      redirect_to mypage_path
+      redirect_to root_path
     else
       flash.now[:danger] = t('.flash.invalid_password')
       render 'new'
