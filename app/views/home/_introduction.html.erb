@@ -1,4 +1,3 @@
-<h3 class='mt-2'>友達紹介</h3>
 <div class='text-center'>
   <% url = "#{request.base_url}/signup?u=#{@current_user.name.unpack('H*')[0]}" %>
   <%= qrcode_tag(url) %>
