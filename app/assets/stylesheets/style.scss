@@ -7,11 +7,13 @@
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  background-color: #ff6dbe;
+  color: #ff74be;
+  background-color: #ffffff;
 }
 
-a, a:hover {
-  color: #ff6dbe;
+a.nav-link, a.nav-link:hover {
+  color: #ffffff;
+  background-color: #ff74be;
 }
 
 .btn-secondary {
