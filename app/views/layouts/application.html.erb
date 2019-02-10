@@ -3,6 +3,12 @@
   <head>
     <title>wao:Pay</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta property='og:title' content='wao:Pay - QRコードで簡単お支払い！'>
+    <meta property='og:type' content='website'>
+    <meta property='og:url' content='<%= request.base_url %>'>
+    <meta property='og:image' content='<%= request.base_url %>/assets/ogp.jpg'>
+    <meta property='og:site_name' content='wao:Pay'>
+    <meta property='og:description' content='wao:Payは、スマホで簡単にお支払いができるアプリです。最短10秒で登録完了！'>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
