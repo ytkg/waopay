@@ -24,8 +24,11 @@
       <%= yield :menu %>
     </header>
     <div class="container mb-4">
-      <%= yield %>
-    </div>
+      <% if request.user_agent.match(/iPhone|Android/).present? %>
+        <%= yield %>
+      <% else %>
+        <%= render partial: 'sessions/pc' %>
+      <% end %>
     <footer class='fixed-bottom bg-secondary text-center pb-1'>
       <%= link_to image_tag('wao_logo.svg', height: '15px'), 'https://wao.bz/', target: '_blank' %>
     </footer>
