@@ -17,8 +17,11 @@
       </nav>
       <%= yield :menu %>
     </header>
-    <div class="container">
+    <div class="container mb-4">
       <%= yield %>
     </div>
+    <footer class='fixed-bottom bg-secondary text-center pb-1'>
+      <%= link_to image_tag('wao_logo.svg', height: '15px'), 'https://wao.bz/', target: '_blank' %>
+    </footer>
   </body>
 </html>
