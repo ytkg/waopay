@@ -33,6 +33,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 
 gem 'rqrcode'
+gem 'slack-api'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
