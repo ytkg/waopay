@@ -32,5 +32,23 @@
     <footer class='fixed-bottom bg-secondary text-center pb-1'>
       <%= link_to image_tag('wao_logo.svg', height: '15px'), 'https://wao.bz/', target: '_blank' %>
     </footer>
+    <script>
+      if ('<%= Rails.env %>' == 'production') {
+        var developerMode = false;
+        var element = new Image();
+
+        Object.defineProperty(element, 'id', {
+          get: function() {
+            developerMode = true;
+          }
+        });
+
+        console.dir(element);
+
+        if (developerMode) {
+          document.body.innerHTML = '開発者モード';
+        }
+      }
+    </script>
   </body>
 </html>
